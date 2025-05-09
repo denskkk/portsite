@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRAIN HARBOR Terminal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .bg-primary {
+      background-color: #2e3845;
+    }
+    .text-highlight {
+      color: #e4bb43;
+    }
+    .hover-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #e4bb43;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 20px;
+      z-index: 999;
+    }
+    .language-switcher button {
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    .language-switcher button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .active-lang {
+      font-weight: bold;
+      color: #e4bb43;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-primary text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between">
+      <h1 class="text-xl sm:text-2xl font-bold tracking-wide">GRAIN HARBOR Terminal</h1>
+      <div class="flex items-center">
+        <!-- Language switcher -->
+        <div class="language-switcher mr-6 flex space-x-2">
+          <button id="lang-en" class="active-lang" onclick="switchLanguage('en')">EN</button>
+          <button id="lang-tr" onclick="switchLanguage('tr')">TR</button>
+          <button id="lang-uk" onclick="switchLanguage('uk')">UA</button>
+        </div>
+        <!-- Navigation -->
+        <nav class="w-full sm:w-auto mt-2 sm:mt-0">
+          <ul class="flex flex-wrap justify-center sm:justify-end gap-4 text-sm sm:text-base">
+            <li><a href="#about" class="hover:text-highlight" data-en="About" data-tr="Hakkında" data-uk="Про нас">About</a></li>
+            <li><a href="#advantages" class="hover:text-highlight" data-en="Advantages" data-tr="Avantajlar" data-uk="Переваги">Advantages</a></li>
+            <li><a href="#services" class="hover:text-highlight" data-en="Services" data-tr="Hizmetler" data-uk="Послуги">Services</a></li>
+            <li><a href="#partners" class="hover:text-highlight" data-en="Partners" data-tr="Ortaklar" data-uk="Партнери">Partners</a></li>
+            <li><a href="#plan" class="hover:text-highlight" data-en="Plan" data-tr="Plan" data-uk="План">Plan</a></li>
+            <li><a href="#contact" class="hover:text-highlight" data-en="Contact" data-tr="İletişim" data-uk="Контакти">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative h-[70vh] sm:h-[80vh] flex items-center justify-center text-white bg-cover bg-center" style="background-image: url('img/banner.png');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 text-center px-4 sm:px-6 md:px-10" data-aos="fade-up">
+      <h2 class="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight" 
+          data-en="Modern Grain Terminal" 
+          data-tr="Modern Tahıl Terminali" 
+          data-uk="Сучасний зерновий термінал">Modern Grain Terminal</h2>
+      <p class="text-md sm:text-lg md:text-xl" 
+         data-en="Strategically located near Chernomorsk Port" 
+         data-tr="Chernomorsk Limanı yakınında stratejik konumda" 
+         data-uk="Стратегічно розташований поблизу порту Чорноморськ">Strategically located near Chernomorsk Port</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-6xl mx-auto px-4 py-20" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-primary border-b-4 border-yellow-400 pb-4 mb-10" 
+        data-en="About the Enterprise" 
+        data-tr="İşletme Hakkında" 
+        data-uk="Про підприємство">About the Enterprise</h2>
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-5 text-lg leading-relaxed">
+        <div class="flex items-start">
+          <span class="text-highlight font-bold w-40" 
+                data-en="Built:" 
+                data-tr="İnşa Edildi:" 
+                data-uk="Збудовано:">Built:</span>
+          <p>2014–2018</p>
+        </div>
+        <div class="flex items-start">
+          <span class="text-highlight font-bold w-40" 
+                data-en="Storage Capacity:" 
+                data-tr="Depolama Kapasitesi:" 
+                data-uk="Ємність зберігання:">Storage Capacity:</span>
+          <p>115,000 tons</p>
+        </div>
+        <div class="flex items-start">
+          <span class="text-highlight font-bold w-40" 
+                data-en="Location:" 
+                data-tr="Konum:" 
+                data-uk="Місцезнаходження:">Location:</span>
+          <p data-en="Odesa region, Molodizhne village, Zaliznychna Street, 3" 
+             data-tr="Odesa bölgesi, Molodizhne köyü, Zaliznychna Sokağı, 3" 
+             data-uk="Одеська область, село Молодіжне, вулиця Залізнична, 3">Odesa region, Molodizhne village, Zaliznychna Street, 3</p>
+        </div>
+        <div class="flex items-start">
+          <span class="text-highlight font-bold w-40" 
+                data-en="Area:" 
+                data-tr="Alan:" 
+                data-uk="Площа:">Area:</span>
+          <p>1.95 hectares</p>
+        </div>
+        <div class="flex items-start">
+          <span class="text-highlight font-bold w-40" 
+                data-en="Main Activities:" 
+                data-tr="Ana Faaliyetler:" 
+                data-uk="Основні види діяльності:">Main Activities:</span>
+          <p data-en="Intake, Storage, Shipment, Export <br>(Cereals & Oilseeds)" 
+             data-tr="Alım, Depolama, Sevkiyat, İhracat <br>(Tahıllar ve Yağlı Tohumlar)" 
+             data-uk="Приймання, Зберігання, Відвантаження, Експорт <br>(Зернові та олійні культури)">Intake, Storage, Shipment, Export <br>(Cereals & Oilseeds)</p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <img src="img/terminal1.png" alt="Terminal Overview" class="rounded-lg shadow-lg w-full object-cover aspect-video" />
+        <img src="img/terminal2.png" alt="Railway Terminal" class="rounded-lg shadow-lg w-full object-cover aspect-video" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="bg-gray-100 py-20" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-primary mb-10" 
+          data-en="Terminal Video Tour" 
+          data-tr="Terminal Video Turu" 
+          data-uk="Відеотур терміналом">Terminal Video Tour</h2>
+      <div class="w-full max-w-6xl mx-auto mb-12">
+        <div class="relative w-full pb-[56.25%]">
+          <iframe class="absolute top-0 left-0 w-full h-full rounded shadow-lg" src="https://www.youtube.com/embed/hB8VHquBElM?si=04KbYf4KtjLp3yA_" title="Terminal Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="bg-[#1c3555] text-white py-4 mt-8">
+        <p class="text-center text-sm sm:text-base font-bold tracking-wide">TERMINAL «GRAIN HARBOR GIDA IC VE DIS TICARET ANONIM SIRKETI» LLC</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Advantages -->
+  <section id="advantages" class="bg-white py-20" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-primary border-b-4 border-yellow-400 pb-4 mb-10" 
+          data-en="Terminal Advantages" 
+          data-tr="Terminal Avantajları" 
+          data-uk="Переваги терміналу">Terminal Advantages</h2>
+
+      <!-- Block 1 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+        <img src="img/loc.png" alt="Strategic Location" class="rounded-lg shadow-lg order-1 md:order-none" />
+        <div>
+          <h3 class="text-2xl font-semibold mb-2" 
+              data-en="Strategic Location" 
+              data-tr="Stratejik Konum" 
+              data-uk="Стратегічне розташування">Strategic Location</h3>
+          <p class="text-lg text-gray-700" 
+             data-en="Just 6 km from the Sea Trading Port of Chornomorsk, our terminal is adjacent to the port station, enabling fast and efficient export routes." 
+             data-tr="Chornomorsk Deniz Ticaret Limanı'ndan sadece 6 km uzaklıkta olan terminalimiz, liman istasyonuna bitişiktir ve hızlı ve verimli ihracat rotaları sağlar." 
+             data-uk="Лише за 6 км від Морського торговельного порту Чорноморськ, наш термінал розташований поруч із портовою станцією, що забезпечує швидкі та ефективні експортні маршрути.">Just 6 km from the Sea Trading Port of Chornomorsk, our terminal is adjacent to the port station, enabling fast and efficient export routes.</p>
+        </div>
+      </div>
+
+      <!-- Block 2 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+        <div>
+          <h3 class="text-2xl font-semibold mb-2" 
+              data-en="Railway Infrastructure" 
+              data-tr="Demiryolu Altyapısı" 
+              data-uk="Залізнична інфраструктура">Railway Infrastructure</h3>
+          <p class="text-lg text-gray-700" 
+             data-en="We operate our own railway line with a daily intake capacity of 120 railcars, ensuring seamless grain delivery and distribution." 
+             data-tr="Günlük 120 vagonluk alım kapasitesine sahip kendi demiryolu hattımızı işletiyoruz ve sorunsuz tahıl teslimatı ve dağıtımı sağlıyoruz." 
+             data-uk="Ми експлуатуємо власну залізничну колію з добовою спроможністю прийому 120 вагонів, що забезпечує безперебійне доставлення та розподіл зерна.">We operate our own railway line with a daily intake capacity of 120 railcars, ensuring seamless grain delivery and distribution.</p>
+        </div>
+        <img src="img/log.png" alt="Railway Logistics" class="rounded-lg shadow-lg" />
+      </div>
+
+      <!-- Block 3 -->
+      <div class="grid grid-cols-1 gap-6 text-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-2" 
+              data-en="High Loading Throughput" 
+              data-tr="Yüksek Yükleme Verimi" 
+              data-uk="Висока пропускна здатність завантаження">High Loading Throughput</h3>
+          <p class="text-lg text-gray-700 mb-6" 
+             data-en="Equipped with modern transshipment technologies, the terminal handles vessels up to 82,000 DWT with a loading rate of 10,000–13,000 tons per day." 
+             data-tr="Modern aktarma teknolojileriyle donatılmış terminal, 82.000 DWT'ye kadar gemileri günde 10.000-13.000 ton yükleme hızıyla elleçlemektedir." 
+             data-uk="Обладнаний сучасними технологіями перевантаження, термінал обробляє судна вантажопідйомністю до 82 000 тонн зі швидкістю завантаження 10 000–13 000 тонн на добу.">Equipped with modern transshipment technologies, the terminal handles vessels up to 82,000 DWT with a loading rate of 10,000–13,000 tons per day.</p>
+        </div>
+        <div class="w-full">
+          <img src="img/load.png" alt="Loading Throughput" class="w-full max-w-3xl mx-auto rounded-lg shadow-lg object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-gray-100 py-20" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-primary border-b-4 border-yellow-400 pb-4 mb-10" 
+          data-en="Our Services" 
+          data-tr="Hizmetlerimiz" 
+          data-uk="Наші послуги">Our Services</h2>
+
+      <!-- Service 1 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+        <img src="img/intake.png" alt="Grain Intake" class="rounded-lg shadow-lg order-1 md:order-none" />
+        <div>
+          <h3 class="text-2xl font-semibold mb-2" 
+              data-en="Grain Intake" 
+              data-tr="Tahıl Alımı" 
+              data-uk="Прийом зерна">Grain Intake</h3>
+          <p class="text-lg text-gray-700" 
+             data-en="Automated and fast grain acceptance from railcars and trucks with quality checks and dust-free handling." 
+             data-tr="Kalite kontrolleri ve tozsuz işleme ile vagonlardan ve kamyonlardan otomatik ve hızlı tahıl kabulü." 
+             data-uk="Автоматизоване та швидке приймання зерна з вагонів і вантажівок із перевіркою якості та безпиловою обробкою.">Automated and fast grain acceptance from railcars and trucks with quality checks and dust-free handling.</p>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+        <div>
+          <h3 class="text-2xl font-semibold mb-2" 
+              data-en="Safe Storage" 
+              data-tr="Güvenli Depolama" 
+              data-uk="Безпечне зберігання">Safe Storage</h3>
+          <p class="text-lg text-gray-700" 
+             data-en="Modern silos with advanced monitoring for temperature and moisture. Capacity: 115,000 tons of cereals and oilseeds." 
+             data-tr="Sıcaklık ve nem için gelişmiş izleme sistemli modern silolar. Kapasite: 115.000 ton tahıl ve yağlı tohum." 
+             data-uk="Сучасні силоси з передовим моніторингом температури та вологості. Місткість: 115 000 тонн зернових та олійних культур.">Modern silos with advanced monitoring for temperature and moisture. Capacity: 115,000 tons of cereals and oilseeds.</p>
+        </div>
+        <img src="img/safe.png" alt="Silos and Storage" class="rounded-lg shadow-lg" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="bg-white py-16" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-primary border-b-2 border-yellow-400 pb-2 mb-10" 
+          data-en="Our Partners" 
+          data-tr="Ortaklarımız" 
+          data-uk="Наші партнери">Our Partners</h2>
+      <p class="text-lg text-gray-700 mb-6" 
+         data-en="We cooperate with leading agricultural companies and exporters in Ukraine and abroad." 
+         data-tr="Ukrayna'da ve yurtdışında önde gelen tarım şirketleri ve ihracatçıları ile işbirliği yapıyoruz." 
+         data-uk="Ми співпрацюємо з провідними сільськогосподарськими компаніями та експортерами в Україні та за кордоном.">We cooperate with leading agricultural companies and exporters in Ukraine and abroad.</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <img src="img/portlogo.png" alt="Partner logo" class="h-40 object-contain" />
+        <img src="img/logo3.webp" alt="Partner logo" class="h-40 object-contain" />
+        <img src="img/logo2.png" alt="Partner logo" class="h-40 object-contain" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Section -->
+  <section id="plan" class="max-w-6xl mx-auto px-4 py-16" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-primary border-b-2 border-yellow-400 pb-2 mb-8" 
+        data-en="Plan of the Area" 
+        data-tr="Alan Planı" 
+        data-uk="План території">Plan of the Area</h2>
+    <img src="img/plan.png" alt="plan" class="rounded-lg w-full shadow-lg" />
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact" class="bg-primary text-white py-12" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-2xl font-semibold mb-4" 
+          data-en="Contact" 
+          data-tr="İletişim" 
+          data-uk="Контакти">Contact</h3>
+      <p class="mb-1">GRAIN HARBOR GIDA IC VE DIS TICARET ANONIM SIRKETI</p>
+      <p class="mb-1" 
+         data-en="BARBAROS MAH. AK ZAMBAK SK. UPHILL TOWERS, 3A 41, ATASEHIR, ISTANBUL" 
+         data-tr="BARBAROS MAH. AK ZAMBAK SK. UPHILL TOWERS, 3A 41, ATAŞEHIR, İSTANBUL" 
+         data-uk="BARBAROS MAH. AK ZAMBAK SK. UPHILL TOWERS, 3A 41, АТАШЕХІР, СТАМБУЛ">BARBAROS MAH. AK ZAMBAK SK. UPHILL TOWERS, 3A 41, ATASEHIR, ISTANBUL</p>
+      <p class="mb-4" 
+         data-en="Email: <a href='mailto:officeua@grainharbor.com.tr' class='underline'>officeua@grainharbor.com.tr</a> / <a href='mailto:officetr@grainharbor.com.tr' class='underline'>officetr@grainharbor.com.tr</a>" 
+         data-tr="E-posta: <a href='mailto:officeua@grainharbor.com.tr' class='underline'>officeua@grainharbor.com.tr</a> / <a href='mailto:officetr@grainharbor.com.tr' class='underline'>officetr@grainharbor.com.tr</a>" 
+         data-uk="Електронна пошта: <a href='mailto:officeua@grainharbor.com.tr' class='underline'>officeua@grainharbor.com.tr</a> / <a href='mailto:officetr@grainharbor.com.tr' class='underline'>officetr@grainharbor.com.tr</a>">Email: <a href="mailto:officeua@grainharbor.com.tr" class="underline">officeua@grainharbor.com.tr</a> / <a href="mailto:officetr@grainharbor.com.tr" class="underline">officetr@grainharbor.com.tr</a></p>
+      <iframe class="w-full h-64 rounded-md shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.585540965528!2d29.117222515392252!3d40.99301067930213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac65ba33f2a2b%3A0x4498d875872ed3de!2sUphill%20Towers!5e0!3m2!1sen!2str!4v1715206763025!5m2!1sen!2str" loading="lazy" allowfullscreen></iframe>
+      <p class="text-sm mt-6" 
+         data-en="&copy; 2025 GRAIN HARBOR. All rights reserved." 
+         data-tr="&copy; 2025 GRAIN HARBOR. Tüm hakları saklıdır." 
+         data-uk="&copy; 2025 GRAIN HARBOR. Всі права захищені.">&copy; 2025 GRAIN HARBOR. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <script>
+    // Language switching functionality
+    function switchLanguage(lang) {
+      // Store selected language preference
+      localStorage.setItem('preferredLanguage', lang);
+      
+      // Update all elements with data attributes
+      document.querySelectorAll('[data-en][data-tr][data-uk]').forEach(element => {
+        if (element.hasAttribute(`data-${lang}`)) {
+          const translation = element.getAttribute(`data-${lang}`);
+          // Handle elements with HTML content (like links in email)
+          element.innerHTML = translation;
+        }
+      });
+      
+      // Update language buttons appearance
+      document.querySelectorAll('.language-switcher button').forEach(btn => {
+        btn.classList.remove('active-lang');
+      });
+      document.getElementById(`lang-${lang}`).classList.add('active-lang');
+      
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+    }
+    
+    // Initialize language from localStorage or default to English
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+      switchLanguage(savedLanguage);
+      
+      // Initialize AOS
+      AOS.init({ duration: 1000, once: true });
+    });
+    
+    // Back to top button functionality
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
